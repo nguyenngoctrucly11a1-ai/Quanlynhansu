@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="vi"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260918-05-13efa67","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/83d6dfdadcd4750a.telemetry_sdk.js" integrity="sha512-XS4Dvzp6vbagZS9vFErihvr8aO3S0tH78KWUefn06fmL4WYqryBtZj/IOLITYj7dFA4gPVvPg1W/JB1DK3uLNQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Nhân Sự Thuyền Viên · Dolphin AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Source+Serif+Pro:wght@600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#09263b; --ocean:#0d5f7a; --aqua:#0ea5a8; --sand:#f4f0e6; --ink:#14212a; --muted:#64748b; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Inter",sans-serif; color:var(--ink); }
+    .app-shell { width:100%; min-height:calc(100 * min(var(--vh, 1vh), 1vh)); background:#eef4f5; }
+    .serif { font-family:"Inter",sans-serif; }
+    .topbar { background:linear-gradient(120deg,#082236,#0b4860); }
+    .status-dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
+    .step { min-width:154px; position:relative; padding:12px 14px; border-left:1px solid #dce6e8; cursor:pointer; }
+    .step:first-child { border-left:0; }
+    .step.active { background:#e0f2f4; box-shadow:inset 0 -3px 0 #0ea5a8; }
+    .step.done .step-number { background:#15803d; color:white; }
+    .step.active .step-number { background:#0d5f7a; color:white; }
+    .step-number { width:25px;height:25px; display:flex;align-items:center;justify-content:center;border-radius:999px;background:#e2e8f0;color:#64748b;font-size:12px;font-weight:700;flex:none; }
+    .panel { background:white; border:1px solid #dce7e9; box-shadow:0 8px 25px rgba(15,47,58,.06); }
+    .section-view { display:none; animation:fade .25s ease; }
+    .section-view.active { display:block; }
+    @keyframes fade { from{opacity:.35; transform:translateY(4px)} to{opacity:1; transform:none} }
+    .choice-card { border:2px solid #d9e5e8; transition:.2s; cursor:pointer; }
+    .choice-card:hover { border-color:#56a8b1; transform:translateY(-2px); }
+    .choice-card.selected { border-color:#0d5f7a; background:#edf8f8; box-shadow:0 0 0 3px rgba(13,95,122,.11); }
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:700; white-space:nowrap; }
+    .good { background:#dcfce7; color:#166534; } .warn { background:#fef3c7; color:#92400e; } .bad { background:#fee2e2; color:#991b1b; } .info { background:#dbeafe; color:#1d4ed8; } .neutral { background:#e2e8f0; color:#475569; }
+    .field { width:100%; border:1px solid #cbd8dc; border-radius:8px; padding:10px 11px; background:#fff; font-size:14px; outline:none; }
+    .field:focus { border-color:#0d5f7a; box-shadow:0 0 0 3px rgba(13,95,122,.12); }
+    .btn { display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;transition:.18s; }
+    .btn-primary { background:#0d5f7a;color:white; } .btn-primary:hover { background:#09485e; }
+    .btn-secondary { background:#e8f1f3;color:#12475b; } .btn-secondary:hover { background:#d6e7ea; }
+    .btn-danger { background:#b42318;color:white; } .btn-danger:hover { background:#8c1b13; }
+    .btn:disabled { opacity:.45; cursor:not-allowed; }
+    th { font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#64748b; text-align:left; padding:11px 12px; background:#f6f9fa; }
+    td { padding:12px; border-top:1px solid #e6edef; font-size:13px; vertical-align:middle; }
+    .modal { display:none; } .modal.open { display:flex; }
+    .timeline-line { position:absolute;left:15px;top:22px;bottom:-19px;width:2px;background:#d6e4e7; }
+    .log-item:last-child .timeline-line { display:none; }
+    .toast { transform:translateY(110px); opacity:0; transition:.3s; } .toast.show { transform:translateY(0);opacity:1; }
+    .criterion { border-left:3px solid #dbeafe; }
+    .rank-row { display:flex; gap:8px; align-items:center; }
+    .rank-row + .rank-row { margin-top:8px; }
+    .rank-remove { width:40px; height:40px; padding:0; }
+    .rank-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 9px; border-radius:999px; background:#eaf4f6; color:#12475b; font-size:12px; font-weight:700; }
+    .score-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    @media(max-width:700px){ .score-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+    @media(max-width:900px){ .stepper-scroll{overflow-x:auto}.step{min-width:145px}.dashboard-grid{grid-template-columns:1fr!important}.hide-sm{display:none} }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/8de366929c5f3b48.data_sdk.js" type="text/javascript" integrity="sha512-TyQ8k8cZj66xe/aENmn6RyZpdOFZXbAo5+KBG3PeFM+Q4qMTHU8xAqmq4ADClNfPrstgQYV6OzZHwLTnElzB2g=="></script>
+  <script src="/_sdk/0ddbbee1c66b1212.editing_sdk.js" type="text/javascript" integrity="sha512-HQn5LM1yruQSbY78ATUril6QeOJ9xj7KqO64ltLtb4vBwI5Qv3/tloFFOndBPZTNZoeV5xKzuth5y6FTi9crsg=="></script>
+  <script src="/_sdk/765e1fea0cec97ce.resizing_sdk.js" type="text/javascript" integrity="sha512-IRTJnqww0+HQ5V/LlWEQrlD5SrYHaVvaeVoNe8HYQXoaguzUGheSd9+n9s6WOgaTcEH0g37DuINHZ9aqfzWjlw=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: rgb(238, 244, 245);">
+  <div class="app-shell">
+   <header class="topbar text-white px-5 py-4">
+    <div class="w-full max-w-[1500px] mx-auto flex flex-wrap items-center justify-between gap-4">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/15">
+       <i data-lucide="ship-wheel" class="w-5 h-5"></i>
+      </div>
+      <div>
+       <p data-template-id="top-eyebrow" class="canva-text text-[11px] tracking-[.16em] uppercase text-cyan-200" style="color: rgb(186, 230, 253); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.12rem;">DOLPHIN MARINE</p>
+       <h1 data-template-id="page-title" class="canva-text serif font-bold leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 30px;">Quản Lý Nhân Sự Thuyền Viên</h1>
+      </div>
+     </div>
+     <div class="flex items-center gap-3"><span data-template-id="sample-label" class="canva-tag bg-amber-300 text-amber-950 px-3 py-1 rounded-full text-xs font-bold" style="background: rgb(252, 211, 77); color: rgb(113, 63, 18); font-weight: 700; font-style: normal; font-size: 15px;">DỮ LIỆU MẪU</span> <button id="resetBtn" data-template-id="reset-button" class="canva-button btn bg-white/10 hover:bg-white/20 text-white border border-white/15" style="background: rgba(255, 255, 255, 0.098); color: rgb(255, 255, 255); font-weight: 700;"><i data-lucide="rotate-ccw" class="w-4 h-4"></i><span data-template-id="reset-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Reset workflow</span></button>
+     </div>
+    </div>
+   </header>
+   <nav class="bg-white border-b border-slate-200 stepper-scroll" aria-label="Tiến trình 8 bước">
+    <div id="stepper" class="w-max min-w-full max-w-[1500px] mx-auto flex"></div>
+   </nav>
+   <main class="w-full max-w-[1500px] mx-auto px-5 py-6">
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+     <article class="panel rounded-xl p-4 border-t-4 border-sky-600">
+      <div class="flex justify-between">
+       <span data-template-id="kpi-progress-label" class="canva-text text-slate-500 text-sm" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Tiến độ workflow</span><i data-lucide="route" class="w-5 text-sky-700"></i>
+      </div><strong id="progressValue" class="text-2xl mt-2 block">0%</strong>
+      <div class="h-2 rounded-full bg-slate-100 mt-3 overflow-hidden">
+       <div id="progressBar" class="h-full bg-sky-600 transition-all" style="width:0%"></div>
+      </div>
+     </article>
+     <article class="panel rounded-xl p-4 border-t-4 border-emerald-600">
+      <div class="flex justify-between">
+       <span data-template-id="kpi-candidate-label" class="canva-text text-slate-500 text-sm" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Hồ sơ cần xử lý</span><i data-lucide="users" class="w-5 text-emerald-700"></i>
+      </div><strong id="candidateKpi" class="text-2xl mt-2 block">03</strong><span id="candidateKpiNote" class="text-xs text-slate-500">chưa sàng lọc</span>
+     </article>
+     <article class="panel rounded-xl p-4 border-t-4 border-amber-500">
+      <div class="flex justify-between">
+       <span data-template-id="kpi-alert-label" class="canva-text text-slate-500 text-sm" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Cảnh báo sắp đến hạn</span><i data-lucide="bell-ring" class="w-5 text-amber-600"></i>
+      </div><strong class="text-2xl mt-2 block">02</strong><span data-template-id="kpi-alert-note" class="canva-text text-xs text-slate-500" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">hợp đồng / thay ca</span>
+     </article>
+     <article class="panel rounded-xl p-4 border-t-4 border-indigo-600">
+      <div class="flex justify-between">
+       <span data-template-id="kpi-status-label" class="canva-text text-slate-500 text-sm" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Trạng thái quyết định</span><i data-lucide="clipboard-check" class="w-5 text-indigo-700"></i>
+      </div><strong id="decisionKpi" class="text-lg mt-2 block">Chờ đánh giá</strong><span data-template-id="kpi-status-note" class="canva-text text-xs text-slate-500" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Quyết định thủ công</span>
+     </article>
+    </section>
+    <section class="panel rounded-xl p-4 mb-6 border-l-4 border-sky-600">
+     <div class="flex gap-3"><i data-lucide="shield-alert" class="w-5 mt-0.5 text-sky-700 flex-none"></i>
+      <p data-template-id="ai-disclaimer" class="canva-text text-sm text-slate-700" style="color: rgb(51, 65, 85); font-weight: 400; font-style: normal; font-size: 15px;">AI chỉ tạo đề xuất hỗ trợ đối chiếu hồ sơ và yêu cầu chuyến đi, phòng Nhân sự thuyền viên và bộ phận chuyên môn luôn được quyền chỉnh sửa, xem xét và đưa ra quyết định cuối cùng.</p>
+     </div>
+    </section>
+    <section id="view-1" class="section-view active">
+     <div class="flex flex-wrap justify-between items-end gap-3 mb-4">
+      <div>
+       <p data-template-id="step1-kicker" class="canva-text text-xs font-bold text-sky-700 tracking-widest" style="color: rgb(3, 105, 161); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.08rem;">JOB / VOYAGE REQUIREMENT</p>
+       <h2 data-template-id="step1-title" class="canva-text serif text-3xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Xác định nhu cầu nhân sự</h2>
+      </div><span id="requirementState" class="badge neutral"><span class="status-dot bg-slate-400"></span> Chưa lưu</span>
+     </div>
+     <div class="dashboard-grid grid grid-cols-[1.45fr_.8fr] gap-5">
+      <form id="requirementForm" class="panel rounded-xl p-5">
+       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+         <label data-template-id="vessel-label" class="canva-text block text-sm font-semibold mb-1" for="vessel" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Tàu cần bố trí</label><input id="vessel" class="field" value="DOLPHIN 01">
+        </div>
+        <div>
+         <label data-template-id="voyage-label" class="canva-text block text-sm font-semibold mb-1" for="voyage" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Chuyến đi</label><input id="voyage" class="field" value="Tuticorin (Ấn Độ) → Batam (Indonesia)">
+        </div>
+        <div>
+         <label data-template-id="rank-label" class="canva-text block text-sm font-semibold mb-1" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Chức danh cần tuyển / thay thế</label>
+         <div id="rankList">
+          <div class="rank-row">
+           <input class="field rank-input" value="Second Officer" placeholder="Nhập chức danh">
+           <button type="button" class="btn btn-secondary rank-remove" title="Xóa chức danh" onclick="removeRank(this)" disabled><i data-lucide="x" class="w-4"></i></button>
+          </div>
+         </div>
+         <button type="button" id="addRankBtn" class="btn btn-secondary mt-2"><i data-lucide="plus" class="w-4"></i> Thêm chức danh</button>
+        </div>
+        <div>
+         <label data-template-id="quantity-label" class="canva-text block text-sm font-semibold mb-1" for="quantity" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Số lượng cần bố trí</label><input id="quantity" type="number" min="1" step="1" class="field" value="1">
+        </div>
+        <div>
+         <label data-template-id="vesseltype-label" class="canva-text block text-sm font-semibold mb-1" for="vesselType" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Loại tàu</label><select id="vesselType" class="field"><option selected="">Tanker</option><option>Chemical Tanker</option></select>
+        </div>
+        <div>
+         <label data-template-id="join-label" class="canva-text block text-sm font-semibold mb-1" for="joinDate" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Thời gian nhận tàu</label><input id="joinDate" type="date" class="field" value="2026-10-15">
+        </div>
+        <div>
+         <label data-template-id="experience-label" class="canva-text block text-sm font-semibold mb-1" for="experience" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Kinh nghiệm tối thiểu</label><select id="experience" class="field"><option>24 tháng</option><option>12 tháng</option><option>36 tháng</option></select>
+        </div>
+        <div>
+         <label data-template-id="certificate-label" class="canva-text block text-sm font-semibold mb-1" for="certificates" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Yêu cầu chứng chỉ</label><input id="certificates" class="field" value="COC II/2, GMDSS, ECDIS">
+        </div>
+        <div>
+         <label data-template-id="english-label" class="canva-text block text-sm font-semibold mb-1" for="english" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Yêu cầu tiếng Anh</label><select id="english" class="field"><option>Maritime English – Khá</option><option>Maritime English – Trung bình</option><option>Maritime English – Tốt</option></select>
+        </div>
+       </div>
+       <div class="mt-5 flex justify-end">
+        <button data-template-id="save-requirement-button" type="submit" class="canva-button btn btn-primary" style="background: rgb(13, 95, 122); color: rgb(255, 255, 255); font-weight: 700;"><i data-lucide="save" class="w-4"></i><span data-template-id="save-requirement-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Lưu yêu cầu</span></button>
+       </div>
+      </form>
+      <aside class="panel rounded-xl p-5 bg-[#f9fcfc]">
+       <div class="flex items-center gap-2 mb-4">
+        <i data-lucide="file-check-2" class="w-5 text-teal-700"></i>
+        <h3 data-template-id="summary-title" class="canva-text font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Tóm tắt yêu cầu</h3>
+       </div>
+       <div id="requirementSummary" class="text-sm text-slate-500 leading-7">
+        Lưu yêu cầu để xem bản tóm tắt Job/Voyage Requirement.
+       </div>
+      </aside>
+     </div>
+    </section>
+    <section id="view-2" class="section-view">
+     <div class="mb-5">
+      <p data-template-id="step2-kicker" class="canva-text text-xs font-bold text-sky-700 tracking-widest" style="color: rgb(3, 105, 161); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.08rem;">NGUỒN SÀNG LỌC</p>
+      <h2 data-template-id="step2-title" class="canva-text serif text-3xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Chọn nguồn thuyền viên</h2>
+      <p data-template-id="step2-helper" class="canva-text text-slate-500 mt-1" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Chọn một nhánh để cập nhật workflow và nội dung sàng lọc tiếp theo.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-5 max-w-5xl"><button id="newSource" type="button" class="choice-card text-left rounded-xl p-6 bg-white">
+       <div class="flex justify-between">
+        <div class="w-12 h-12 bg-sky-100 rounded-xl text-sky-700 flex items-center justify-center">
+         <i data-lucide="user-plus"></i>
+        </div><span class="badge info">Nguồn mới</span>
+       </div><h3 data-template-id="new-source-title" class="canva-text text-xl font-bold mt-5" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">TUYỂN NGƯỜI MỚI</h3><p data-template-id="new-source-description" class="canva-text text-sm text-slate-500 mt-2 leading-6" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Tiếp nhận ứng viên mới, đọc CV/C002, chuẩn hóa Candidate Profile và tạo đề xuất đối chiếu.</p>
+       <div class="mt-5 text-sm font-bold text-sky-700 flex items-center gap-2">
+        Chọn nhánh <i data-lucide="arrow-right" class="w-4"></i>
+       </div></button> <button id="replacementSource" type="button" class="choice-card text-left rounded-xl p-6 bg-white">
+       <div class="flex justify-between">
+        <div class="w-12 h-12 bg-amber-100 rounded-xl text-amber-700 flex items-center justify-center">
+         <i data-lucide="repeat-2"></i>
+        </div><span class="badge warn">Nguồn nội bộ</span>
+       </div><h3 data-template-id="replacement-source-title" class="canva-text text-xl font-bold mt-5" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">THAY THẾ THUYỀN VIÊN</h3><p data-template-id="replacement-source-description" class="canva-text text-sm text-slate-500 mt-2 leading-6" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Theo dõi thuyền viên hiện có, hợp đồng sắp hết hạn và tìm người phù hợp trong nguồn dự trữ.</p>
+       <div class="mt-5 text-sm font-bold text-amber-700 flex items-center gap-2">
+        Chọn nhánh <i data-lucide="arrow-right" class="w-4"></i>
+       </div></button>
+     </div>
+    </section>
+    <section id="view-3" class="section-view">
+     <div class="flex flex-wrap justify-between gap-3 mb-5">
+      <div>
+       <p id="branchStepKicker" class="text-xs font-bold text-sky-700 tracking-widest">HỒ SƠ / THEO DÕI</p>
+       <h2 id="branchStepTitle" class="serif text-3xl font-bold">Tiếp nhận và đọc hồ sơ</h2>
+      </div><button id="checkNextVoyage" class="btn btn-secondary hidden"><i data-lucide="radar" class="w-4"></i> Kiểm tra chuyến tiếp theo</button>
+     </div>
+     <div id="newIntake">
+      <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-5">
+       <article class="panel rounded-xl p-5">
+        <h3 data-template-id="intake-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Tiếp nhận hồ sơ ứng viên</h3>
+        <p data-template-id="intake-helper" class="canva-text text-sm text-slate-500 mt-1" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Khu vực mô phỏng tải CV, C002 và chứng chỉ.</p>
+        <div class="border-2 border-dashed border-slate-300 rounded-xl p-6 mt-5 text-center bg-slate-50"><i data-lucide="upload-cloud" class="w-8 h-8 mx-auto text-sky-700"></i>
+         <p data-template-id="upload-label" class="canva-text font-semibold mt-2" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">CV · C002 · Bằng cấp · Sea service</p>
+         <p data-template-id="upload-note" class="canva-text text-xs text-slate-500 mt-1" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Chọn hồ sơ mẫu bên dưới để minh họa luồng xử lý.</p><button id="extractBtn" type="button" data-template-id="extract-button" class="canva-button btn btn-primary mt-4" style="background: rgb(13, 95, 122); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Đọc &amp; trích xuất hồ sơ</button>
+        </div><label data-template-id="sample-profile-label" class="canva-text block text-sm font-semibold mt-5 mb-1" for="profileSelect" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Chọn hồ sơ mẫu</label> <select id="profileSelect" class="field"><option value="0">Nguyễn Minh Quân — Second Officer</option><option value="1">Trần Quốc Huy — Second Officer</option><option value="2">Lê Thanh Sơn — Second Officer</option></select>
+       </article>
+       <article class="panel rounded-xl p-5">
+        <div class="flex justify-between items-center">
+         <h3 data-template-id="profile-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Candidate Profile có thể chỉnh sửa</h3><span id="extractStatus" class="badge neutral">Chưa trích xuất</span>
+        </div>
+        <div id="profileEditor" class="grid sm:grid-cols-2 gap-3 mt-4 opacity-50 pointer-events-none">
+         <div>
+          <label class="text-xs text-slate-500" for="pRank">Rank</label><input id="pRank" class="field mt-1">
+         </div>
+         <div>
+          <label class="text-xs text-slate-500" for="pSea">Sea Experience</label><input id="pSea" class="field mt-1">
+         </div>
+         <div>
+          <label class="text-xs text-slate-500" for="pType">Vessel Type</label><input id="pType" class="field mt-1">
+         </div>
+         <div>
+          <label class="text-xs text-slate-500" for="pEnglish">English Level</label><input id="pEnglish" class="field mt-1">
+         </div>
+         <div>
+          <label class="text-xs text-slate-500" for="pCert">Certificates</label><input id="pCert" class="field mt-1">
+         </div>
+         <div>
+          <label class="text-xs text-slate-500" for="pMedical">Medical</label><input id="pMedical" class="field mt-1">
+         </div>
+         <div class="sm:col-span-2">
+          <label class="text-xs text-slate-500" for="pOther">Other Information</label><input id="pOther" class="field mt-1">
+         </div>
+        </div>
+       </article>
+      </div>
+     </div>
+     <div id="replacementIntake" class="hidden panel rounded-xl overflow-hidden">
+      <div class="p-5 flex flex-wrap justify-between gap-3 border-b">
+       <div>
+        <h3 data-template-id="crew-db-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Database thuyền viên hiện có</h3>
+        <p data-template-id="crew-db-helper" class="canva-text text-sm text-slate-500 mt-1" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Theo dõi hợp đồng, ngày thay ca và mức độ sẵn sàng của nguồn nội bộ.</p>
+       </div>
+       <div class="flex gap-2">
+        <input id="crewSearch" class="field w-52" placeholder="Tìm thuyền viên"><select id="crewFilter" class="field w-40"><option value="all">Tất cả trạng thái</option><option value="soon">Sắp thay ca</option><option value="available">Dự trữ</option></select>
+       </div>
+      </div>
+      <div class="overflow-x-auto">
+       <table class="w-full">
+        <thead>
+         <tr>
+          <th>Seafarer</th>
+          <th>Rank</th>
+          <th>Current Vessel</th>
+          <th>Contract</th>
+          <th>Crew Change</th>
+          <th>Vessel Experience</th>
+          <th>English</th>
+          <th></th>
+         </tr>
+        </thead>
+        <tbody id="crewRows"></tbody>
+       </table>
+      </div>
+     </div>
+    </section>
+    <section id="view-4" class="section-view">
+     <div class="flex flex-wrap justify-between gap-4 mb-5">
+      <div>
+       <p id="screenStepKicker" class="text-xs font-bold text-sky-700 tracking-widest">ĐỐI CHIẾU AI</p>
+       <h2 id="screenStepTitle" class="serif text-3xl font-bold">AI sàng lọc ứng viên</h2>
+      </div>
+      <div class="flex gap-2">
+       <select id="fitFilter" class="field w-48"><option value="all">Tất cả đề xuất</option><option value="high">Phù hợp</option><option value="review">Cần xem xét</option><option value="low">Chưa phù hợp</option></select><button id="screenBtn" class="btn btn-primary"><i data-lucide="sparkles" class="w-4"></i> Chạy đối chiếu</button>
+      </div>
+     </div>
+     <section class="panel rounded-xl overflow-hidden">
+      <div class="p-4 bg-sky-50 border-b border-sky-100 flex gap-3">
+       <i data-lucide="bot" class="w-5 text-sky-700"></i>
+       <p data-template-id="screening-note" class="canva-text text-sm text-sky-950" style="color: rgb(12, 74, 110); font-weight: 400; font-style: normal; font-size: 15px;">Kết quả là đề xuất đối chiếu dựa trên dữ liệu mẫu. Không được dùng làm quyết định tuyển dụng hoặc loại tự động.</p>
+      </div>
+      <div class="overflow-x-auto">
+       <table class="w-full">
+        <thead>
+         <tr>
+          <th>Ứng viên</th>
+          <th>Chức danh</th>
+          <th>Kinh nghiệm</th>
+          <th>Loại tàu</th>
+          <th>Chứng chỉ</th>
+          <th>Yêu cầu chuyến</th>
+          <th>Đề xuất AI</th>
+          <th></th>
+         </tr>
+        </thead>
+        <tbody id="candidateRows"></tbody>
+       </table>
+      </div>
+     </section>
+     <div id="comparisonDetail" class="panel rounded-xl mt-5 p-5 hidden"></div>
+    </section>
+    <section id="view-5" class="section-view">
+     <div class="mb-5">
+      <p data-template-id="step5-kicker" class="canva-text text-xs font-bold text-sky-700 tracking-widest" style="color: rgb(3, 105, 161); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.08rem;">ENGLISH TEST</p>
+      <h2 data-template-id="step5-title" class="canva-text serif text-3xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Kiểm tra tiếng Anh và chuyên môn</h2>
+      <p data-template-id="english-note" class="canva-text mt-2 text-slate-600" style="color: rgb(71, 85, 105); font-weight: 400; font-style: normal; font-size: 15px;">English không phải tiêu chí loại tự động. Khi chưa đạt, người phụ trách có thể đánh giá thêm chuyên môn và yêu cầu E-Learning.</p>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-5 max-w-5xl">
+      <article class="panel rounded-xl p-5">
+       <h3 data-template-id="english-test-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Kết quả English Test</h3>
+       <p class="text-sm text-slate-500 mt-1">Ứng viên đang xét: <strong id="englishCandidate">Nguyễn Minh Quân</strong></p>
+       <div class="score-grid mt-5">
+        <div><label class="text-xs text-slate-500 block mb-1">Từ vựng hàng hải</label><input id="engVocab" type="number" min="0" max="100" class="field" value="75"></div>
+        <div><label class="text-xs text-slate-500 block mb-1">Đọc hiểu</label><input id="engReading" type="number" min="0" max="100" class="field" value="72"></div>
+        <div><label class="text-xs text-slate-500 block mb-1">Nghe hiểu</label><input id="engListening" type="number" min="0" max="100" class="field" value="68"></div>
+        <div><label class="text-xs text-slate-500 block mb-1">Giao tiếp</label><input id="engSpeaking" type="number" min="0" max="100" class="field" value="70"></div>
+       </div>
+       <div class="mt-4 p-4 rounded-lg bg-slate-50 flex flex-wrap items-center justify-between gap-3">
+        <div><span class="text-sm text-slate-500">Điểm tổng hợp</span><strong id="englishScore" class="block text-2xl mt-1">71/100</strong></div>
+        <div id="englishStatus" class="badge neutral">Chưa đánh giá</div>
+       </div>
+       <div class="grid grid-cols-2 gap-3 mt-4"><button id="englishPass" class="choice-card p-4 rounded-xl text-left"><span class="badge good">Đạt</span><p class="font-bold mt-3">Xác nhận đạt yêu cầu</p></button> <button id="englishFail" class="choice-card p-4 rounded-xl text-left"><span class="badge warn">Chưa đạt</span><p class="font-bold mt-3">Xác nhận cần hỗ trợ</p></button>
+       </div>
+       <div id="englishResult" class="mt-5 p-4 rounded-lg bg-slate-50 text-sm text-slate-500">
+        Nhập kết quả kiểm tra và chọn trạng thái để tiếp tục.
+       </div>
+      </article>
+      <article id="professionalPanel" class="panel rounded-xl p-5 opacity-50 pointer-events-none">
+       <h3 data-template-id="professional-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Kiểm tra chuyên môn</h3>
+       <p data-template-id="professional-helper" class="canva-text text-sm text-slate-500 mt-1" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Đánh giá chuyên môn bổ sung, đặc biệt khi English chưa đạt hoặc hồ sơ còn điểm cần xem xét.</p>
+       <div class="grid grid-cols-2 gap-3 mt-5">
+        <button id="profGood" class="choice-card p-4 rounded-xl text-left"><span class="badge good">Tốt</span><p class="font-bold mt-3">Đạt đánh giá chuyên môn</p></button><button id="profFail" class="choice-card p-4 rounded-xl text-left"><span class="badge bad">Chưa đạt</span><p class="font-bold mt-3">Cần bổ sung năng lực</p></button>
+       </div>
+       <div id="ruleResult" class="mt-5 text-sm"></div>
+      </article>
+     </div>
+    </section>
+    <section id="view-6" class="section-view">
+     <div class="mb-5">
+      <p data-template-id="step6-kicker" class="canva-text text-xs font-bold text-sky-700 tracking-widest" style="color: rgb(3, 105, 161); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.08rem;">XÁC NHẬN</p>
+      <h2 data-template-id="step6-title" class="canva-text serif text-3xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Đánh giá chuyên môn và xác nhận</h2>
+      <p data-template-id="review-note" class="canva-text text-slate-500 mt-1" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Phòng Nhân sự Thuyền viên và bộ phận chuyên môn cùng xác nhận. Hệ thống không tự động quyết định.</p>
+     </div>
+     <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-5">
+      <article class="panel rounded-xl overflow-hidden">
+       <div class="overflow-x-auto">
+        <table class="w-full">
+         <thead>
+          <tr>
+           <th>Hạng mục kiểm tra</th>
+           <th>Trạng thái</th>
+           <th>Ghi chú của HR / Chuyên môn</th>
+          </tr>
+         </thead>
+         <tbody id="checklistRows"></tbody>
+        </table>
+       </div>
+      </article>
+      <aside class="panel rounded-xl p-5">
+       <h3 data-template-id="manual-decision-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Quyết định thủ công</h3>
+       <p data-template-id="manual-decision-helper" class="canva-text text-sm text-slate-500 mt-2 leading-6" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">Chỉ người phụ trách được đưa ra quyết định sau khi đã xem xét đầy đủ checklist và ghi chú.</p>
+       <div class="space-y-3 mt-6"><button id="approveBtn" data-template-id="approve-button" class="canva-button btn btn-primary w-full" style="background: rgb(13, 95, 122); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">APPROVE</button> <button id="reviewBtn" data-template-id="further-review-button" class="canva-button btn btn-secondary w-full" style="background: rgb(232, 241, 243); color: rgb(18, 71, 91); font-weight: 700; font-style: normal; font-size: 15px;">NEED FURTHER REVIEW</button> <button id="rejectBtn" data-template-id="reject-button" class="canva-button btn btn-danger w-full" style="background: rgb(180, 35, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">REJECT</button>
+       </div>
+      </aside>
+     </div>
+    </section>
+    <section id="view-7" class="section-view">
+     <div class="mb-5">
+      <p data-template-id="step7-kicker" class="canva-text text-xs font-bold text-sky-700 tracking-widest" style="color: rgb(3, 105, 161); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.08rem;">BỐ TRÍ</p>
+      <h2 data-template-id="step7-title" class="canva-text serif text-3xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Bố trí thuyền viên</h2>
+     </div>
+     <div class="grid lg:grid-cols-[1fr_.7fr] gap-5 max-w-6xl">
+      <form id="assignmentForm" class="panel rounded-xl p-5">
+       <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+         <label data-template-id="assign-candidate-label" class="canva-text block text-sm font-semibold mb-1" for="assignCandidate" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Candidate</label><input id="assignCandidate" class="field" readonly="">
+        </div>
+        <div>
+         <label data-template-id="assign-vessel-label" class="canva-text block text-sm font-semibold mb-1" for="assignVessel" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Assign Vessel</label><input id="assignVessel" class="field">
+        </div>
+        <div>
+         <label data-template-id="assign-rank-label" class="canva-text block text-sm font-semibold mb-1" for="assignRank" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Assign Rank</label><input id="assignRank" class="field">
+        </div>
+        <div>
+         <label data-template-id="assign-voyage-label" class="canva-text block text-sm font-semibold mb-1" for="assignVoyage" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Assign Voyage</label><input id="assignVoyage" class="field">
+        </div>
+        <div class="sm:col-span-2">
+         <label data-template-id="schedule-label" class="canva-text block text-sm font-semibold mb-1" for="schedule" style="color: rgb(51, 65, 85); font-weight: 600; font-style: normal; font-size: 15px;">Crew Schedule</label><input id="schedule" class="field" value="15/10/2026 · Crew change tại Singapore">
+        </div>
+       </div><button data-template-id="assign-button" type="submit" class="canva-button btn btn-primary mt-5" style="background: rgb(13, 95, 122); color: rgb(255, 255, 255); font-weight: 700;"><i data-lucide="anchor" class="w-4"></i><span data-template-id="assign-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Xác nhận bố trí</span></button>
+      </form>
+      <aside class="panel rounded-xl p-5 bg-[#f8fcfa]">
+       <h3 data-template-id="learning-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">E-Learning &amp; Periodic Assessment</h3>
+       <div id="learningTasks" class="mt-4 space-y-3 text-sm text-slate-500"></div>
+      </aside>
+     </div>
+    </section>
+    <section id="view-8" class="section-view">
+     <div class="mb-5">
+      <p data-template-id="step8-kicker" class="canva-text text-xs font-bold text-sky-700 tracking-widest" style="color: rgb(3, 105, 161); font-weight: 700; font-style: normal; font-size: 15px; letter-spacing: 0.08rem;">THEO DÕI</p>
+      <h2 data-template-id="step8-title" class="canva-text serif text-3xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Theo dõi và cập nhật dữ liệu</h2>
+     </div>
+     <div class="grid lg:grid-cols-[1fr_.85fr] gap-5">
+      <article class="panel rounded-xl p-5">
+       <h3 data-template-id="update-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Cập nhật sau bố trí</h3>
+       <div class="grid sm:grid-cols-2 gap-3 mt-4 text-sm">
+        <div class="p-3 bg-slate-50 rounded-lg">
+         <span class="text-slate-500">Tàu đang làm việc</span><strong id="dbVessel" class="block mt-1">Chưa cập nhật</strong>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+         <span class="text-slate-500">Hợp đồng</span><strong class="block mt-1">15/10/2026 – 14/04/2027</strong>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+         <span class="text-slate-500">Ngày thay ca</span><strong class="block mt-1">15/10/2026</strong>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+         <span class="text-slate-500">Chứng chỉ / English</span><strong class="block mt-1">Được HR xác nhận</strong>
+        </div>
+       </div><button id="updateBtn" data-template-id="update-db-button" class="canva-button btn btn-primary mt-5" style="background: rgb(13, 95, 122); color: rgb(255, 255, 255); font-weight: 700;"><i data-lucide="database" class="w-4"></i><span data-template-id="update-db-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Cập nhật database</span></button>
+      </article>
+      <aside class="panel rounded-xl p-5">
+       <h3 data-template-id="loop-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Monitoring loop</h3>
+       <div class="flex items-center justify-between mt-6 text-center text-xs font-bold text-sky-900">
+        <div class="p-3 rounded-lg bg-sky-100">
+         DATABASE
+        </div><i data-lucide="arrow-right"></i>
+        <div class="p-3 rounded-lg bg-teal-100">
+         AI MONITORING
+        </div><i data-lucide="arrow-right"></i>
+        <div class="p-3 rounded-lg bg-amber-100">
+         THAY CA
+        </div>
+       </div>
+       <p data-template-id="loop-helper" class="canva-text text-sm text-slate-500 mt-5" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 15px;">DATABASE → AI MONITORING → phát hiện sắp hết hợp đồng / thay ca → tìm người thay thế. AI chỉ tạo cảnh báo và đề xuất.</p>
+      </aside>
+     </div>
+     <article class="panel rounded-xl p-5 mt-5">
+      <div class="flex justify-between items-center">
+       <h3 data-template-id="alerts-title" class="canva-text font-bold text-lg" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 18px;">Danh sách cảnh báo sắp đến hạn</h3><button id="openReplacement" class="btn btn-secondary text-sm"><i data-lucide="repeat-2" class="w-4"></i> Mở quy trình thay thế</button>
+      </div>
+      <div id="alertRows" class="mt-4 space-y-2"></div>
+     </article>
+    </section>
+    <section class="grid lg:grid-cols-[1.1fr_.9fr] gap-5 mt-7">
+     <article class="panel rounded-xl p-5">
+      <h2 data-template-id="timeline-title" class="canva-text serif text-xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Timeline quy trình</h2>
+      <div class="grid sm:grid-cols-4 gap-2 mt-4 text-xs">
+       <div class="p-3 rounded-lg bg-sky-50 border border-sky-100">
+        <strong>01–02</strong><br><span class="text-slate-500">Xác định nhu cầu</span>
+       </div>
+       <div class="p-3 rounded-lg bg-teal-50 border border-teal-100">
+        <strong>03–04</strong><br><span class="text-slate-500">Sàng lọc hỗ trợ</span>
+       </div>
+       <div class="p-3 rounded-lg bg-amber-50 border border-amber-100">
+        <strong>05–06</strong><br><span class="text-slate-500">Đánh giá thủ công</span>
+       </div>
+       <div class="p-3 rounded-lg bg-indigo-50 border border-indigo-100">
+        <strong>07–08</strong><br><span class="text-slate-500">Bố trí &amp; theo dõi</span>
+       </div>
+      </div>
+     </article>
+     <aside class="panel rounded-xl p-5">
+      <div class="flex justify-between">
+       <h2 data-template-id="activity-title" class="canva-text serif text-xl font-bold" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Activity Log</h2><span class="text-xs text-slate-400">Phiên hiện tại</span>
+      </div>
+      <div id="activityLog" class="mt-4 max-h-48 overflow-auto"></div>
+     </aside>
+    </section>
+   </main>
+   <div id="confirmModal" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-slate-950/50" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6">
+     <div class="w-11 h-11 rounded-full bg-sky-100 flex items-center justify-center text-sky-700">
+      <i data-lucide="shield-check"></i>
+     </div>
+     <h2 id="modalTitle" data-template-id="modal-title" class="canva-text font-bold text-xl mt-4" style="color: rgb(20, 33, 42); font-weight: 700; font-style: normal; font-size: 23px;">Xác nhận hành động quan trọng</h2>
+     <p id="modalMessage" class="text-slate-600 text-sm mt-2 leading-6"></p>
+     <div class="flex justify-end gap-2 mt-6">
+      <button id="modalCancel" data-template-id="modal-cancel-button" class="canva-button btn btn-secondary" style="background: rgb(232, 241, 243); color: rgb(18, 71, 91); font-weight: 700; font-style: normal; font-size: 15px;">Hủy</button><button id="modalConfirm" data-template-id="modal-confirm-button" class="canva-button btn btn-primary" style="background: rgb(13, 95, 122); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Xác nhận</button>
+     </div>
+    </div>
+   </div>
+   <div id="toast" class="toast fixed z-[60] bottom-5 right-5 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-xl text-sm font-semibold"></div>
+  </div>
+  <script>
+    const state={
+      step:1, requirement:false, source:null, extracted:false, screened:false,
+      selected:null, english:null, englishScore:0, professional:null, decision:null,
+      assigned:false, updated:false, logs:[]
+    };
+
+    const candidates=[
+      {id:1,name:"Nguyễn Minh Quân",rank:"Second Officer",sea:"30 tháng",type:"Tanker",cert:"Đủ COC II/2, GMDSS, ECDIS",english:"Khá",medical:"Đạt",fit:"high",score:92},
+      {id:2,name:"Trần Quốc Huy",rank:"Second Officer",sea:"18 tháng",type:"Tanker",cert:"Thiếu ECDIS cập nhật",english:"Tốt",medical:"Đạt",fit:"review",score:72},
+      {id:3,name:"Lê Thanh Sơn",rank:"Third Officer",sea:"10 tháng",type:"Tanker",cert:"COC chưa phù hợp",english:"Trung bình",medical:"Đạt",fit:"low",score:41},
+      {id:4,name:"Nguyễn Hải Đăng",rank:"Chief Officer",sea:"54 tháng",type:"Chemical Tanker",cert:"Đủ STCW, Advanced Chemical Tanker",english:"Tốt",medical:"Đạt",fit:"high",score:95}
+    ];
+
+    const crew=[
+      {name:"Phạm Đức Long",rank:"Second Officer",vessel:"DOLPHIN 01",contract:"20/04/2026 – 19/10/2026",change:"12 ngày",experience:"30 tháng Tanker",english:"Khá",status:"soon"},
+      {name:"Vũ Hoàng Nam",rank:"Second Officer",vessel:"Nguồn dự trữ",contract:"Sẵn sàng",change:"Có thể nhận tàu",experience:"42 tháng Tanker",english:"Tốt",status:"available"},
+      {name:"Đỗ Thành Trung",rank:"Second Officer",vessel:"DOLPHIN 01",contract:"01/07/2026 – 30/12/2026",change:"82 ngày",experience:"28 tháng Tanker",english:"Khá",status:"all"},
+      {name:"Trần Minh Khoa",rank:"Chief Officer",vessel:"Nguồn dự trữ",contract:"Sẵn sàng",change:"Có thể nhận tàu",experience:"48 tháng Chemical Tanker",english:"Tốt",status:"available"}
+    ];
+
+    const checklist=["Chức danh","Kinh nghiệm","Chứng chỉ","Loại tàu","Tiếng Anh","Medical","D&A","Yêu cầu chuyến đi"];
+    const steps=["Nhu cầu","Nguồn","Hồ sơ / Theo dõi","Đối chiếu AI","English Test","Xác nhận","Bố trí","Theo dõi"];
+
+    function esc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
+    function badge(type,text){return `<span class="badge ${type}">${esc(text)}</span>`;}
+    function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2800);}
+    function log(text){state.logs.unshift({text,time:new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})});renderLog();}
+    function renderLog(){
+      document.getElementById("activityLog").innerHTML=state.logs.length
+        ? state.logs.map(x=>`<div class="log-item relative pl-8 pb-4 text-sm"><span class="timeline-line"></span><span class="absolute left-0 top-1 w-3 h-3 rounded-full bg-teal-600 border-2 border-white"></span><strong class="block text-slate-700">${esc(x.text)}</strong><span class="text-xs text-slate-400">${x.time} · HR Vận hành</span></div>`).join("")
+        : `<p class="text-sm text-slate-400">Các thao tác sẽ được ghi lại tại đây.</p>`;
+    }
+
+    function renderStepper(){
+      document.getElementById("stepper").innerHTML=steps.map((x,i)=>{
+        const n=i+1, cls=n===state.step?"active":n<state.step?"done":"";
+        return `<button type="button" class="step ${cls} text-left" onclick="gotoStep(${n})"><div><span class="block text-xs font-bold text-slate-700 whitespace-nowrap">${esc(x)}</span></div></button>`;
+      }).join("");
+    }
+
+    function updateProgress(){
+      const complete=[state.requirement,state.source,state.extracted||state.source==="replacement",state.screened,state.english,state.decision,state.assigned,state.updated].filter(Boolean).length;
+      const p=Math.round(complete/8*100);
+      document.getElementById("progressValue").textContent=p+"%";
+      document.getElementById("progressBar").style.width=p+"%";
+      document.getElementById("candidateKpiNote").textContent=state.screened?"đã đối chiếu":"chưa sàng lọc";
+      document.getElementById("decisionKpi").textContent=state.decision==="approve"?"Đã phê duyệt":state.decision==="reject"?"Đã từ chối":state.decision==="review"?"Cần xem xét thêm":"Chờ đánh giá";
+    }
+
+    function currentRanks(){
+      return [...document.querySelectorAll(".rank-input")].map(x=>x.value.trim()).filter(Boolean);
+    }
+    function firstRank(){return currentRanks()[0]||"";}
+    function addRank(value=""){
+      const wrap=document.getElementById("rankList");
+      const row=document.createElement("div"); row.className="rank-row";
+      row.innerHTML=`<input class="field rank-input" placeholder="Nhập chức danh" value="${esc(value)}"><button type="button" class="btn btn-secondary rank-remove" title="Xóa chức danh"><i data-lucide="x" class="w-4"></i></button>`;
+      wrap.appendChild(row);
+      row.querySelector(".rank-remove").onclick=()=>{row.remove();syncRankRemoveButtons();};
+      syncRankRemoveButtons(); lucide.createIcons();
+    }
+    function syncRankRemoveButtons(){
+      const rows=[...document.querySelectorAll(".rank-row")];
+      rows.forEach((row)=>{row.querySelector(".rank-remove").disabled=rows.length===1;});
+    }
+    function removeRank(btn){
+      const rows=document.querySelectorAll(".rank-row");
+      if(rows.length>1){btn.closest(".rank-row").remove();syncRankRemoveButtons();}
+    }
+    window.removeRank=removeRank;
+
+    function requirementData(){
+      return {
+        vessel:document.getElementById("vessel").value.trim(),
+        voyage:document.getElementById("voyage").value.trim(),
+        ranks:currentRanks(),
+        quantity:Math.max(1,parseInt(document.getElementById("quantity").value,10)||1),
+        vesselType:document.getElementById("vesselType").value,
+        joinDate:document.getElementById("joinDate").value,
+        experience:document.getElementById("experience").value,
+        certificates:document.getElementById("certificates").value.trim(),
+        english:document.getElementById("english").value
+      };
+    }
+
+    function rankMatches(candidateRank,ranks){
+      const a=String(candidateRank||"").toLowerCase();
+      return ranks.some(r=>{const b=r.toLowerCase();return a===b||a.includes(b)||b.includes(a);});
+    }
+    function typeMatches(experienceOrType, vesselType){
+      const a=String(experienceOrType||"").toLowerCase(), b=String(vesselType||"").toLowerCase();
+      if(!a||!b)return true;
+      if(b.includes("chemical")) return a.includes("chemical");
+      if(b.includes("tanker")) return a.includes("tanker");
+      return a.includes(b);
+    }
+
+    function gotoStep(n){
+      if(n>1&&!state.requirement){toast("Vui lòng lưu Job/Voyage Requirement trước.");return;}
+      if(n>=3&&!state.source){toast("Vui lòng chọn nguồn thuyền viên trước.");return;}
+      if(n>=4&&!state.extracted&&state.source!=="replacement"){toast("Vui lòng đọc và trích xuất hồ sơ trước.");return;}
+      if(n>=5&&!state.screened){toast("Vui lòng chạy đối chiếu AI trước.");return;}
+      if(n>=6&&!state.english){toast("Vui lòng hoàn tất English Test trước.");return;}
+      state.step=n;
+      document.querySelectorAll(".section-view").forEach(e=>e.classList.remove("active"));
+      document.getElementById("view-"+n).classList.add("active");
+      refreshBranchUI(); renderStepper(); updateProgress();
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+    window.gotoStep=gotoStep;
+
+    function refreshBranchUI(){
+      const rep=state.source==="replacement";
+      document.getElementById("newIntake").classList.toggle("hidden",rep);
+      document.getElementById("replacementIntake").classList.toggle("hidden",!rep);
+      document.getElementById("checkNextVoyage").classList.toggle("hidden",!rep);
+      document.getElementById("branchStepKicker").textContent="HỒ SƠ / THEO DÕI";
+      document.getElementById("branchStepTitle").textContent=rep?"Theo dõi tình trạng thuyền viên":"Tiếp nhận và đọc hồ sơ";
+      document.getElementById("screenStepKicker").textContent="ĐỐI CHIẾU AI";
+      document.getElementById("screenStepTitle").textContent=rep?"AI tìm người thay thế":"AI sàng lọc ứng viên";
+      document.getElementById("screenBtn").innerHTML=rep?'<i data-lucide="search" class="w-4"></i> Tìm người phù hợp':'<i data-lucide="sparkles" class="w-4"></i> Chạy đối chiếu';
+      document.getElementById("assignCandidate").value=state.selected?.name||"Nguyễn Minh Quân";
+      document.getElementById("assignVessel").value=document.getElementById("vessel").value;
+      document.getElementById("assignRank").value=firstRank();
+      document.getElementById("assignVoyage").value=document.getElementById("voyage").value;
+      lucide.createIcons();
+    }
+
+    function chooseSource(type){
+      state.source=type;
+      document.getElementById("newSource").classList.toggle("selected",type==="new");
+      document.getElementById("replacementSource").classList.toggle("selected",type==="replacement");
+      renderCandidates(); refreshBranchUI();
+      log(type==="new"?"Chọn nhánh tuyển người mới":"Chọn nhánh thay thế thuyền viên");
+      setTimeout(()=>gotoStep(3),180);
+    }
+
+    function fillProfile(){
+      const p=candidates[+document.getElementById("profileSelect").value] || candidates[0];
+      document.getElementById("pRank").value=p.rank;
+      document.getElementById("pSea").value=p.sea;
+      document.getElementById("pType").value=p.type;
+      document.getElementById("pEnglish").value=p.english;
+      document.getElementById("pCert").value=p.cert;
+      document.getElementById("pMedical").value=p.medical;
+      document.getElementById("pOther").value="CV, C002 và sea service đã được tiếp nhận.";
+      document.getElementById("englishCandidate").textContent=p.name;
+      if(!state.selected) state.selected=p;
+    }
+
+    function renderCrew(){
+      const search=document.getElementById("crewSearch").value.toLowerCase(), filter=document.getElementById("crewFilter").value, req=requirementData();
+      const data=crew.filter(x=>
+        (filter==="all"||x.status===filter) &&
+        (x.name.toLowerCase().includes(search)||x.vessel.toLowerCase().includes(search)||x.rank.toLowerCase().includes(search))
+      );
+      document.getElementById("crewRows").innerHTML=data.map(x=>{
+        const match=rankMatches(x.rank,req.ranks)&&typeMatches(x.experience,req.vesselType);
+        const marker=match?badge("good","Phù hợp"):badge("warn","Cần xem xét");
+        return `<tr><td><strong>${esc(x.name)}</strong></td><td>${esc(x.rank)}</td><td>${esc(x.vessel)}</td><td class="text-xs">${esc(x.contract)}</td><td>${x.status==="soon"?badge("warn",x.change):esc(x.change)}</td><td>${esc(x.experience)}</td><td>${esc(x.english)}</td><td>${marker}<button class="btn btn-secondary !py-2 !px-3 text-xs ml-2" onclick="selectCrew('${esc(x.name)}')">Kiểm tra</button></td></tr>`;
+      }).join("") || `<tr><td colspan="8" class="text-sm text-slate-400">Không có thuyền viên phù hợp với bộ lọc.</td></tr>`;
+    }
+    window.selectCrew=name=>{
+      const item=crew.find(x=>x.name===name);
+      state.selected=item?{...item}:null;
+      document.getElementById("englishCandidate").textContent=item?.name||"Chưa chọn";
+      log("Kiểm tra nguồn nội bộ: "+name);
+      gotoStep(4);
+    };
+
+    function statusFit(f){return f==="high"?badge("good","PHÙ HỢP"):f==="review"?badge("warn","CẦN XEM XÉT"):badge("bad","CHƯA PHÙ HỢP");}
+
+    function renderCandidates(){
+      const filter=document.getElementById("fitFilter").value, req=requirementData();
+      if(state.source==="replacement"){
+        const data=crew.filter(x=>{
+          const fit=rankMatches(x.rank,req.ranks)&&typeMatches(x.experience,req.vesselType);
+          return filter==="all" || (filter==="high"&&fit) || (filter==="review"&&!fit&&x.status!=="soon") || (filter==="low"&&x.status==="soon");
+        });
+        document.getElementById("candidateRows").innerHTML=data.map(x=>{
+          const fit=rankMatches(x.rank,req.ranks)&&typeMatches(x.experience,req.vesselType), score=fit?90:65;
+          const cert="Đối chiếu C002 / hồ sơ nội bộ";
+          return `<tr><td><strong>${esc(x.name)}</strong><br><span class="text-xs text-slate-400">${score}/100 điểm đối chiếu</span></td><td>${esc(x.rank)}</td><td>${esc(x.experience)}</td><td>${esc(req.vesselType)}</td><td>${cert}</td><td>${x.status==="soon"?"Cần thay ca / kiểm tra thời điểm":"Nguồn có thể bố trí"}</td><td>${statusFit(fit?"high":"review")}</td><td><button class="btn btn-secondary !py-2 !px-3 text-xs" onclick="selectCrew('${esc(x.name)}');state.screened=true;renderCandidates();updateProgress();">Chọn</button></td></tr>`;
+        }).join("") || `<tr><td colspan="8" class="text-sm text-slate-400">Chưa tìm thấy nguồn nội bộ phù hợp.</td></tr>`;
+        return;
+      }
+      const data=candidates.filter(c=>filter==="all"||c.fit===filter);
+      document.getElementById("candidateRows").innerHTML=data.map(c=>`<tr><td><strong>${esc(c.name)}</strong><br><span class="text-xs text-slate-400">${c.score}/100 điểm đối chiếu</span></td><td>${esc(c.rank)}</td><td>${esc(c.sea)}</td><td>${esc(c.type)}</td><td>${esc(c.cert)}</td><td>${c.fit==="high"?"Đủ điều kiện chính":"Có điểm cần kiểm tra"}</td><td>${statusFit(c.fit)}</td><td><button class="btn btn-secondary !py-2 !px-3 text-xs" onclick="showCandidate(${c.id})">Chi tiết</button></td></tr>`).join("");
+    }
+
+    window.showCandidate=id=>{
+      const c=candidates.find(x=>x.id===id); if(!c)return;
+      state.selected=c;
+      document.getElementById("englishCandidate").textContent=c.name;
+      document.getElementById("comparisonDetail").classList.remove("hidden");
+      document.getElementById("comparisonDetail").innerHTML=`<div class="flex flex-wrap justify-between gap-3"><div><h3 class="font-bold text-lg">${esc(c.name)} · ${c.score}/100</h3><p class="text-sm text-slate-500">Đối chiếu hỗ trợ với Job/Voyage Requirement</p></div>${statusFit(c.fit)}</div><div class="grid md:grid-cols-5 gap-3 mt-4">${["Chức danh: "+(rankMatches(c.rank,requirementData().ranks)?"Khớp":"Cần xem xét"),"Kinh nghiệm: "+(c.sea.includes(requirementData().experience.split(" ")[0])||c.fit==="high"?"Khớp":"Cần xem xét"),"Loại tàu: "+(typeMatches(c.type,requirementData().vesselType)?"Khớp":"Cần xem xét"),"Chứng chỉ: "+(c.fit==="low"?"Chưa khớp":"Khớp"),"Chuyến đi: Cần HR xác nhận"].map((x,i)=>`<div class="criterion p-3 bg-slate-50 rounded text-sm"><strong>${esc(x)}</strong><br><span class="text-xs text-slate-500">${i===4?"Chỉ là đề xuất hỗ trợ":"Có thể chỉnh sửa khi review"}</span></div>`).join("")}</div><button class="btn btn-primary mt-5" onclick="gotoStep(5)">Tiếp tục kiểm tra English <i data-lucide="arrow-right" class="w-4"></i></button>`;
+      document.getElementById("assignCandidate").value=c.name;
+      lucide.createIcons();
+    };
+
+    function renderChecklist(){
+      document.getElementById("checklistRows").innerHTML=checklist.map((x,i)=>`<tr><td class="font-semibold">${esc(x)}</td><td><select class="field !py-2 !w-36 checklist-status"><option ${i<5?"selected":""}>Đạt</option><option>Cần xem xét</option><option>Không đạt</option></select></td><td><input class="field !py-2" value="${i===4?"English cần xác nhận theo kết quả test":""}" aria-label="Ghi chú ${esc(x)}"></td></tr>`).join("");
+    }
+
+    function openModal(action,message,callback){
+      document.getElementById("modalMessage").textContent=message;
+      document.getElementById("confirmModal").classList.add("open");
+      document.getElementById("modalConfirm").onclick=()=>{document.getElementById("confirmModal").classList.remove("open");callback();};
+    }
+
+    function englishScore(){
+      const ids=["engVocab","engReading","engListening","engSpeaking"];
+      const values=ids.map(id=>Math.min(100,Math.max(0,Number(document.getElementById(id).value)||0)));
+      const score=Math.round(values.reduce((a,b)=>a+b,0)/values.length);
+      document.getElementById("englishScore").textContent=score+"/100";
+      state.englishScore=score;
+      const req=document.getElementById("english").value;
+      const threshold=req.includes("Tốt")?80:req.includes("Khá")?65:50;
+      const status=document.getElementById("englishStatus");
+      status.className="badge "+(score>=threshold?"good":"warn");
+      status.textContent=score>=threshold?"Đạt theo ngưỡng tham chiếu":"Chưa đạt – cần xem xét";
+      return {score,threshold,pass:score>=threshold};
+    }
+
+    function setEnglish(value){
+      const r=englishScore();
+      state.english=value;
+      document.getElementById("englishPass").classList.toggle("selected",value==="pass");
+      document.getElementById("englishFail").classList.toggle("selected",value==="fail");
+      const result=document.getElementById("englishResult");
+      if(value==="pass"){
+        result.className="mt-5 p-4 rounded-lg text-sm bg-emerald-50 text-emerald-900";
+        result.textContent=`English được xác nhận ĐẠT với ${r.score}/100. Tiếp tục đánh giá chuyên môn và review thủ công.`;
+      }else{
+        result.className="mt-5 p-4 rounded-lg text-sm bg-amber-50 text-amber-900";
+        result.textContent=`English được xác nhận CHƯA ĐẠT với ${r.score}/100. Không loại tự động; cần đánh giá chuyên môn và có thể yêu cầu E-Learning.`;
+      }
+      document.getElementById("englishStatus").className="badge "+(value==="pass"?"good":"warn");
+      document.getElementById("englishStatus").textContent=value==="pass"?"Đạt":"Chưa đạt";
+      document.getElementById("professionalPanel").classList.remove("opacity-50","pointer-events-none");
+      log("Cập nhật English Test: "+(value==="pass"?"Đạt":"Chưa đạt")+" · "+r.score+"/100");
+      updateProgress();
+    }
+
+    function setProfessional(value){
+      state.professional=value;
+      document.getElementById("profGood").classList.toggle("selected",value==="good");
+      document.getElementById("profFail").classList.toggle("selected",value==="fail");
+      const r=document.getElementById("ruleResult");
+      if(value==="good"){
+        r.innerHTML=`<div class="p-4 bg-emerald-50 text-emerald-900 rounded-lg"><strong>Có thể tiếp tục xác nhận.</strong><br>${state.english==="fail"?"Khuyến nghị E-Learning / đánh giá lại English trước hoặc trong thời gian bố trí.":"Tiếp tục review checklist và điều kiện bố trí."}</div>`;
+      }else{
+        r.innerHTML=`<div class="p-4 bg-red-50 text-red-900 rounded-lg"><strong>Chưa đủ cơ sở đề xuất bố trí ở thời điểm này.</strong><br>HR và bộ phận chuyên môn vẫn đưa ra quyết định cuối cùng.</div>`;
+      }
+      log("Đánh giá chuyên môn: "+(value==="good"?"Đạt":"Chưa đạt"));
+    }
+
+    function reset(){
+      Object.assign(state,{step:1,requirement:false,source:null,extracted:false,screened:false,selected:null,english:null,englishScore:0,professional:null,decision:null,assigned:false,updated:false,logs:[]});
+      document.getElementById("requirementState").className="badge neutral";
+      document.getElementById("requirementState").innerHTML='<span class="status-dot bg-slate-400"></span> Chưa lưu';
+      document.getElementById("requirementSummary").textContent="Lưu yêu cầu để xem bản tóm tắt Job/Voyage Requirement.";
+      document.getElementById("profileEditor").classList.add("opacity-50","pointer-events-none");
+      document.getElementById("extractStatus").className="badge neutral"; document.getElementById("extractStatus").textContent="Chưa trích xuất";
+      document.getElementById("comparisonDetail").classList.add("hidden");
+      document.getElementById("newSource").classList.remove("selected"); document.getElementById("replacementSource").classList.remove("selected");
+      document.getElementById("learningTasks").innerHTML="Chưa có nhiệm vụ phát sinh."; document.getElementById("dbVessel").textContent="Chưa cập nhật";
+      document.getElementById("rankList").innerHTML=''; addRank("Second Officer");
+      document.getElementById("quantity").value=1;
+      document.getElementById("englishPass").classList.remove("selected"); document.getElementById("englishFail").classList.remove("selected");
+      document.getElementById("professionalPanel").classList.remove("opacity-50"); document.getElementById("professionalPanel").classList.remove("pointer-events-none");
+      document.getElementById("ruleResult").innerHTML="";
+      document.getElementById("englishResult").textContent="Nhập kết quả kiểm tra và chọn trạng thái để tiếp tục.";
+      document.getElementById("englishStatus").className="badge neutral"; document.getElementById("englishStatus").textContent="Chưa đánh giá";
+      renderLog(); renderCrew(); renderCandidates(); refreshBranchUI(); gotoStep(1); toast("Đã khôi phục workflow dữ liệu mẫu.");
+    }
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      lucide.createIcons();
+      renderStepper(); renderLog(); renderCrew(); renderCandidates(); renderChecklist(); fillProfile(); updateProgress(); syncRankRemoveButtons();
+
+      document.getElementById("addRankBtn").onclick=()=>addRank("");
+
+      document.getElementById("requirementForm").addEventListener("submit",e=>{
+        e.preventDefault();
+        const req=requirementData();
+        if(!req.ranks.length){toast("Vui lòng nhập ít nhất một chức danh.");return;}
+        state.requirement=true;
+        document.getElementById("requirementState").className="badge info";
+        document.getElementById("requirementState").innerHTML='<span class="status-dot bg-blue-600"></span> Đã lưu';
+        document.getElementById("requirementSummary").innerHTML=`<div class="flex flex-wrap gap-2 mb-3">${req.ranks.map(r=>`<span class="rank-chip">${esc(r)}</span>`).join("")}</div><strong class="text-slate-800">${esc(req.vessel)}</strong><br><span class="text-slate-500">${esc(req.voyage)}</span><hr class="my-3"><span>Số lượng: ${req.quantity}<br>Nhận tàu: ${esc(req.joinDate)}<br>Loại tàu: ${esc(req.vesselType)}<br>Kinh nghiệm: ${esc(req.experience)}<br>Yêu cầu: ${esc(req.certificates)}<br>English: ${esc(req.english)}</span>`;
+        log("Lưu Job/Voyage Requirement · "+req.ranks.join(", "));
+        renderCrew(); renderCandidates(); updateProgress(); toast("Đã lưu yêu cầu nhân sự."); setTimeout(()=>gotoStep(2),250);
+      });
+
+      document.getElementById("newSource").onclick=()=>chooseSource("new");
+      document.getElementById("replacementSource").onclick=()=>chooseSource("replacement");
+      document.getElementById("profileSelect").onchange=fillProfile;
+      document.getElementById("extractBtn").onclick=()=>{
+        const s=document.getElementById("extractStatus"); s.className="badge info"; s.textContent="Đang xử lý";
+        setTimeout(()=>{state.extracted=true;s.className="badge good";s.textContent="Đã trích xuất";document.getElementById("profileEditor").classList.remove("opacity-50","pointer-events-none");fillProfile();log("Đọc và trích xuất hồ sơ C002");updateProgress();toast("Candidate Profile đã sẵn sàng để HR chỉnh sửa.");},650);
+      };
+      document.getElementById("crewSearch").oninput=renderCrew; document.getElementById("crewFilter").onchange=renderCrew;
+      document.getElementById("screenBtn").onclick=()=>{state.screened=true;renderCandidates();log(state.source==="replacement"?"Tìm người phù hợp trong nguồn nội bộ":"Chạy đối chiếu AI hồ sơ ứng viên");updateProgress();toast("Đã tạo đề xuất đối chiếu. Vui lòng xem xét thủ công.");};
+      document.getElementById("fitFilter").onchange=renderCandidates;
+
+      ["engVocab","engReading","engListening","engSpeaking"].forEach(id=>document.getElementById(id).oninput=englishScore);
+      document.getElementById("englishPass").onclick=()=>setEnglish("pass");
+      document.getElementById("englishFail").onclick=()=>setEnglish("fail");
+      document.getElementById("profGood").onclick=()=>setProfessional("good");
+      document.getElementById("profFail").onclick=()=>setProfessional("fail");
+
+      document.getElementById("approveBtn").onclick=()=>{
+        if(!state.english||!state.professional){toast("Vui lòng hoàn tất English Test và đánh giá chuyên môn trước khi xác nhận.");return;}
+        openModal("approve","Xác nhận APPROVE? Đây là quyết định thủ công của người phụ trách, không phải quyết định của AI.",()=>{state.decision="approve";log("HR và chuyên môn APPROVE hồ sơ");updateProgress();toast("Đã phê duyệt thủ công. Có thể tiếp tục bố trí.");gotoStep(7);});
+      };
+      document.getElementById("reviewBtn").onclick=()=>{state.decision="review";log("Yêu cầu đánh giá bổ sung");updateProgress();toast("Hồ sơ được chuyển sang trạng thái cần xem xét thêm.");};
+      document.getElementById("rejectBtn").onclick=()=>{
+        if(!state.english||!state.professional){toast("Vui lòng hoàn tất English Test và đánh giá chuyên môn trước khi ra quyết định.");return;}
+        openModal("reject","Xác nhận REJECT? Người phụ trách vẫn có thể reset workflow hoặc xem xét một ứng viên khác.",()=>{state.decision="reject";log("HR quyết định REJECT hồ sơ");updateProgress();toast("Đã ghi nhận quyết định từ chối thủ công.");});
+      };
+      document.getElementById("modalCancel").onclick=()=>document.getElementById("confirmModal").classList.remove("open");
+
+      document.getElementById("assignmentForm").addEventListener("submit",e=>{e.preventDefault();openModal("assign","Xác nhận bố trí thuyền viên vào tàu và lịch thay ca đã chọn?",()=>{state.assigned=true;const name=document.getElementById("assignCandidate").value||"Nguyễn Minh Quân";document.getElementById("dbVessel").textContent=document.getElementById("assignVessel").value;const weak=state.english==="fail";document.getElementById("learningTasks").innerHTML=weak?`<div class="p-3 rounded-lg bg-amber-50 text-amber-900"><strong>E-Learning khuyến nghị/bắt buộc theo đánh giá</strong><br>Maritime English Refresher · hoàn thành trước hoặc trong giai đoạn bố trí</div><div class="p-3 rounded-lg bg-sky-50 text-sky-900"><strong>Periodic Assessment</strong><br>Đánh giá định kỳ sau 30 ngày onboard</div>`:`<div class="p-3 rounded-lg bg-emerald-50 text-emerald-900"><strong>Theo dõi định kỳ</strong><br>Không phát sinh E-Learning bắt buộc từ kết quả mô phỏng này.</div>`;log("Xác nhận bố trí "+name);updateProgress();toast("Đã xác nhận bố trí thuyền viên.");gotoStep(8);});});
+      document.getElementById("updateBtn").onclick=()=>{state.updated=true;log("Cập nhật database sau bố trí");updateProgress();toast("Đã cập nhật database dữ liệu mẫu.");};
+      document.getElementById("openReplacement").onclick=()=>{state.source="replacement";refreshBranchUI();renderCrew();renderCandidates();gotoStep(3);toast("Đã mở workflow thay thế thuyền viên.");};
+      document.getElementById("resetBtn").onclick=reset;
+      document.getElementById("alertRows").innerHTML=`<div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-amber-50 border border-amber-100"><span class="text-sm"><strong>DOLPHIN 01</strong> · Second Officer · Hợp đồng kết thúc trong 12 ngày</span>${badge("warn","Cần theo dõi")}</div><div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-sky-50 border border-sky-100"><span class="text-sm"><strong>DOLPHIN 01</strong> · Crew change dự kiến trong 21 ngày</span>${badge("info","Sắp đến hạn")}</div>`;
+      document.getElementById("checkNextVoyage").onclick=()=>{state.screened=true;renderCandidates();gotoStep(4);};
+    });
+  </script>
+ 
+</body></html>
